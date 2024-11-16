@@ -37,7 +37,7 @@ header {
   display: none;
 }
 
-.header-rigth{
+.header-rigth {
   flex: 1;
   display: flex;
   justify-content: flex-end;
@@ -117,6 +117,7 @@ aside {
   height: inherit;
   border-radius: inherit;
 }
+
 .slider {
   position: relative;
   display: flex;
@@ -125,14 +126,17 @@ aside {
   border-radius: inherit;
   width: inherit;
 }
+
 .slide {
   display: none;
   width: 100%;
   height: auto;
 }
+
 .slide.active {
   display: block;
 }
+
 .slider button {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.1);
@@ -143,9 +147,11 @@ aside {
   z-index: 10;
   border-radius: 100%;
 }
+
 .slider .prev {
   left: 10px;
 }
+
 .slider .next {
   right: 10px;
 }
@@ -175,12 +181,14 @@ aside {
   color: rgb(86, 92, 105);
   text-decoration: line-through;
 }
+
 .produtos .text-xs {
   font-size: 12px;
   line-height: 16px;
   --tw-text-opacity: 1;
   color: rgb(127 133 141 / var(--tw-text-opacity));
 }
+
 .margin {
   margin: 0px 0px 0px 7px;
 }
@@ -313,15 +321,17 @@ footer {
   .produtos {
     grid-template-columns: repeat(3, 1fr);
   }
+
   .produto {
     width: 200px;
     height: 316px;
   }
+
   .produtos a img {
     border-radius: inherit;
     height: 200px;
     width: inherit;
- }
+  }
 }
 
 @media (max-width: 426px) {
@@ -333,24 +343,35 @@ footer {
     list-style: none;
     height: 50px;
   }
+
   .menu-mobile {
     margin: 5px 15px 5px 5px;
     height: 10px;
     width: 50px;
     border-radius: 20% / 90%;
     background-color: #06ed9d;
-    transition: 1s;
     position: relative;
   }
-  .menu-open:hover li:nth-child(1) {
+
+  .menu-open li:nth-child(1),
+  .menu-open li:nth-child(2),
+  .menu-open li:nth-child(3) {
+    transform: none;
+    transition: transform 0.3s ease;
+  }
+
+  .menu-open.menu-active li:nth-child(1) {
     transform: translateY(15px) rotate(45deg);
   }
-  .menu-open:hover li:nth-child(3) {
+
+  .menu-open.menu-active li:nth-child(3) {
     transform: translateY(-17px) rotate(-45deg);
   }
-  .menu-open:hover li:nth-child(2) {
+
+  .menu-open.menu-active li:nth-child(2) {
     transform: rotate(-45deg);
   }
+
 
   nav {
     display: none;
@@ -362,9 +383,11 @@ footer {
     top: 99px;
     right: 0;
   }
+
   .header-rigth ul {
     flex-direction: column;
   }
+
   .header-rigth li a {
     font-weight: bold;
     height: 60px;
@@ -372,6 +395,7 @@ footer {
     margin-left: 30px;
     border: 0;
   }
+
   .header-rigth li a:hover,
   .header-rigth li.active a {
     border: 0;
@@ -396,12 +420,15 @@ footer {
   .produtos {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .produtos .nome {
     margin: 5px 0px 4px 5px;
   }
+
   .produto-slider {
     height: 160px
   }
+
   .produtos a img {
     height: 160px;
   }
