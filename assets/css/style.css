@@ -160,7 +160,7 @@ header {
 
 
 
-aside {
+.p-promo {
   background-color: #e20e00;
   display: flex;
   font-weight: bold;
@@ -443,7 +443,7 @@ footer {
     max-width: 900px;
   }
 
-  aside {
+  .p-promo {
     gap: 50px;
   }
 
@@ -468,7 +468,7 @@ footer {
     width: 300px;
   }
 
-  aside {
+  .p-promo {
     gap: 50px;
   }
 
@@ -502,7 +502,7 @@ footer {
     width: 100px;
   }
 
-  aside {
+  .p-promo {
     gap: 10px;
   }
 
