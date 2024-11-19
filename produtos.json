@@ -5,7 +5,8 @@
         "price": "250,00",
         "oldPrice": "",
         "photo": "img/relogio1.jpg",
-        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"]
+        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
+        "stock": 0
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "price": "150.00",
         "oldPrice": "",
         "photo": "img/fonelv1.jpg",
-        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"]
+        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
+        "stock": 3
     },
     {
         "id": 3,
@@ -21,6 +23,7 @@
         "price": "180.00",
         "oldPrice": "200.00",
         "photo": "img/c1.jpg",
-        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"]
+        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
+        "stock": 5
     }
 ]
