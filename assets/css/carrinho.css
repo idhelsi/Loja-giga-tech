@@ -1,8 +1,0 @@
-.carrinho {
-    min-height: calc(70vh - 100px);
-    margin: 15px 0;
-    display: grid;
-    gap: 10px 0px;
-    grid-template-columns: repeat(5, 1fr);
-    justify-items: center;
-}

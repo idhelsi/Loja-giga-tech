@@ -33,9 +33,9 @@ header {
   width: 100px;
 }
 
-.menu-open {
+/* .menu-open {
   display: none;
-}
+} */
 
 .header-rigth {
   flex: 1;
@@ -53,14 +53,25 @@ header {
 .header-search form {
   display: flex;
   width: 500px;
+  margin-right: 30px;
 }
 
 .header-search input {
   font-size: 16px;
   padding: 8px 15px;
-  border: 1px solid #999;
+  border: 1px solid #333;
   outline: 0;
   width: inherit;
+  outline: none;
+  background-color: #cdcdcd;
+  color: #000;
+}
+.header-search input::placeholder {
+  display: flex;
+  /* text-transform: uppercase; */
+  text-align: center;
+  color: #333;
+  background-color: #cdcdcd;
 }
 
 .header-search button {
@@ -75,7 +86,7 @@ header {
   height: 16px;
 }
 
-.header-rigth ul,
+/* .header-rigth ul,
 .header-rigth li {
   list-style: none;
 }
@@ -102,7 +113,7 @@ header {
 .header-rigth .active a {
   border-bottom: 5px solid #06ed9d;
   color: #ccc;
-}
+} */
 
 .cart {
     display: flex;
@@ -140,17 +151,16 @@ aside {
 
 .produto {
   width: 250px;
-  height: 350px;
+  height: 400px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 3%;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-.produtos a {
+.produtos .item {
   display: flex;
   height: inherit;
   width: inherit;
-  text-decoration: none;
   color: #000;
   flex-direction: column;
   align-items: flex-start;
@@ -208,6 +218,12 @@ aside {
   width: inherit;
 }
 
+.produto-descricao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .produtos .nome {
   margin: 5px 0px 17px 5px;
   font-size: 15px;
@@ -246,6 +262,26 @@ aside {
   color: #06ed9d;
 }
 
+button.add-to-cart {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 244px;
+  height: 30px;
+  color: #FFF;
+  cursor: pointer;
+  background: #06ed9d;
+  border-radius: 10px;
+  border: none;
+  margin: 1px 3px 3px 3px;
+}
+button.add-to-cart:hover {
+  background-color: #080a09;
+  color: #FFF;
+}
 
 footer {
   background-color: #080a09;
