@@ -40,7 +40,7 @@ header {
 .header-rigth {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -53,7 +53,7 @@ header {
 .header-search form {
   display: flex;
   width: 500px;
-  margin-right: 30px;
+  margin-left: 50px;
 }
 
 .header-search input {
@@ -166,6 +166,7 @@ aside {
   flex-direction: column;
   align-items: flex-start;
   border-radius: inherit;
+  justify-content: space-between;
 }
 
 .produto-slider {
@@ -223,6 +224,7 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 
 .produtos .nome {
@@ -270,7 +272,7 @@ button.add-to-cart {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 244px;
+  width: 97%;
   height: 30px;
   color: #FFF;
   cursor: pointer;
@@ -391,6 +393,13 @@ footer {
   }
 }
 
+
+
+.mar {
+  height: 12px;
+}
+
+
 @media (min-width: 426px) and (max-width: 768px) {
   .container {
     max-width: 675px;
@@ -401,7 +410,7 @@ footer {
   }
 
 
-  .menu-open {
+  /* .menu-open {
     list-style: none;
     height: 50px;
   }
@@ -462,7 +471,7 @@ footer {
   .header-rigth li.active a {
     border: 0;
     color: #06ed9d;
-  }
+  } */
 
 
 
@@ -477,13 +486,17 @@ footer {
 
   .produto {
     width: 200px;
-    height: 316px;
+    height: 350px;
   }
 
-  .produtos a img {
+  .produtos div img {
     border-radius: inherit;
     height: 200px;
     width: inherit;
+  }
+  button.add-to-cart {
+    width: 97%;
+    height: 30px
   }
 }
 
@@ -498,7 +511,7 @@ footer {
   }
 
 
-  .menu-open {
+  /* .menu-open {
     list-style: none;
     height: 50px;
   }
@@ -559,7 +572,7 @@ footer {
   .header-rigth li.active a {
     border: 0;
     color: #06ed9d;
-  }
+  } */
 
   aside {
     gap: 10px;
@@ -567,7 +580,7 @@ footer {
 
   .produto {
     width: 150px;
-    height: 275px;
+    height: 300px;
   }
 
   .produtos {
@@ -579,7 +592,7 @@ footer {
   }
 
   .produto-slider {
-    height: 160px
+    height: 150px
   }
 
   .produtos a img {
@@ -588,5 +601,9 @@ footer {
 
   .area {
     flex-direction: column;
+  }
+
+  .mar {
+    height: 25px;
   }
 }

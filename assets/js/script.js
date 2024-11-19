@@ -196,7 +196,7 @@ const createProductCard = product => {
                      R$&nbsp;${parseFloat(product.oldPrice).toFixed(2)}
                    </span>
                  </div>`
-              : ""
+              : `<div class="mar"></div>`
           }
           <h1 class="preco">${parseFloat(product.price).toFixed(2)} R$</h1>
           <div class="text-xs margin">
