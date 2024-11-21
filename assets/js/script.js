@@ -1,8 +1,6 @@
-// --- Variáveis Globais ---
-let cart = []; // Array para armazenar os itens do carrinho
+let cart = []; 
 
 // --- Funções Auxiliares ---
-// Normaliza texto removendo acentos e transformando em minúsculas
 const normalizeText = text => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
 // Cria o HTML de um cartão de produto
@@ -60,7 +58,6 @@ const createProductCard = product => {
   `;
 };
 
-// Atualiza o conteúdo da lista de produtos
 const updateProductList = (products, container) => {
   container.innerHTML = "";
 
@@ -72,17 +69,16 @@ const updateProductList = (products, container) => {
     });
   }
 
-  activateSliders(); // Ativa os sliders após carregar os produtos
-  setupAddToCartButtons(); // Configura os botões de adicionar ao carrinho
+  activateSliders(); 
+  setupAddToCartButtons();
 };
 
 // --- Funções do Carrinho ---
-// Atualiza o carrinho no HTML
 const updateCart = () => {
   const cartContainer = document.getElementById("cart-items");
   const finalizeButton = document.getElementById("finalize-cart");
 
-  cartContainer.innerHTML = ""; // Limpa o conteúdo atual
+  cartContainer.innerHTML = "";
 
   if (cart.length === 0) {
     cartContainer.innerHTML = "<p>Seu carrinho está vazio.</p>";
@@ -90,21 +86,31 @@ const updateCart = () => {
     return;
   }
 
-  // Cria os itens no carrinho
   cart.forEach(item => {
     cartContainer.innerHTML += `
       <div class="cart-item">
         <img src="${item.photo}" alt="${item.name}">
         <div class="cart-item-details">
-          <h4>${item.name}</h4>
-          <p>Preço: R$ ${parseFloat(item.price).toFixed(2)}</p>
+          <h3 class="nome">${item.name}</h3>
           ${
             item.oldPrice
-              ? `<p>Com desconto: R$ ${parseFloat(item.price).toFixed(2)}</p>`
+              ? `<div class="text-xss">
+                   <span class="oldPriceCard">R$&nbsp;${parseFloat(item.oldPrice).toFixed(2)}</span>
+                 </div>`
               : ""
           }
+          <h1 class="preco">${parseFloat(item.price).toFixed(2)} R$</h1>
+          <small>Estoque disponível: ${item.stock}</small>
         </div>
-        <input type="number" min="1" value="${item.quantity}" data-id="${item.id}" class="cart-quantity">
+        <input 
+          type="number" 
+          min="1" 
+          max="${item.stock}" 
+          value="${item.quantity}" 
+          data-id="${item.id}" 
+          class="cart-quantity"
+          readonly
+        >
       </div>
     `;
   });
@@ -112,24 +118,33 @@ const updateCart = () => {
   finalizeButton.style.display = "block";
 };
 
-// Adiciona produto ao carrinho
 const addToCart = productId => {
   fetch("./produtos.json")
     .then(response => response.json())
     .then(products => {
       const product = products.find(item => item.id === productId);
 
-      if (!product) return alert("Produto não encontrado!");
+      if (!product) {
+        alert("Produto não encontrado!");
+        return;
+      }
 
       // Verifica se o produto já está no carrinho
       const existingProduct = cart.find(item => item.id === productId);
-      if (existingProduct) {
-        existingProduct.quantity += 1; // Incrementa a quantidade
-      } else {
-        cart.push({ ...product, quantity: 1 }); // Adiciona o produto com quantidade 1
+      const currentQuantity = existingProduct ? existingProduct.quantity : 0;
+
+      if (currentQuantity + 1 > product.stock) {
+        alert("Quantidade excede o estoque disponível!");
+        return;
       }
 
-      updateCart(); // Atualiza o carrinho
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 }); 
+      }
+
+      updateCart();
     })
     .catch(error => console.error("Erro ao adicionar ao carrinho:", error));
 };
@@ -159,8 +174,8 @@ const finalizeCart = () => {
 // Inicializa o botão de finalizar compra
 document.getElementById("finalize-cart").addEventListener("click", finalizeCart);
 
+
 // --- Funções Principais ---
-// Carrega os produtos do arquivo JSON (com filtro opcional)
 async function loadProducts(filterText = "") {
   try {
     const response = await fetch("./produtos.json");
@@ -169,7 +184,6 @@ async function loadProducts(filterText = "") {
     const products = await response.json();
     const produtosContainer = document.querySelector(".produtos");
 
-    // Filtra os produtos pelo texto da pesquisa
     const filteredProducts = filterText
       ? products.filter(product =>
           normalizeText(product.name).includes(normalizeText(filterText))
@@ -217,7 +231,7 @@ function setupSearch() {
 
   searchInput.addEventListener("input", event => {
     const searchValue = event.target.value.trim();
-    if (searchValue === "") loadProducts(); // Recarrega todos os produtos
+    if (searchValue === "") loadProducts(); 
   });
 
   searchButton.addEventListener("click", event => {
@@ -232,7 +246,7 @@ const toggleCartVisibility = () => {
   const cartIcon = document.querySelector(".cart-i");
   const cartContainer = document.querySelector(".cart");
 
-  if (!cartIcon || !cartContainer) return; // Verifica se os elementos existem
+  if (!cartIcon || !cartContainer) return;
 
   cartIcon.addEventListener("click", () => {
     const isVisible = cartContainer.style.display === "block";
@@ -242,7 +256,7 @@ const toggleCartVisibility = () => {
 
 // --- Inicialização ---
 document.addEventListener("DOMContentLoaded", () => {
-  loadProducts(); // Carrega todos os produtos inicialmente
-  setupSearch(); // Configura a pesquisa
-  toggleCartVisibility(); // Configura alternância de visibilidade do carrinho
+  loadProducts(); 
+  setupSearch();
+  toggleCartVisibility();
 });
