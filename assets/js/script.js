@@ -100,7 +100,7 @@ const updateCart = () => {
               : ""
           }
           <h1 class="preco">${parseFloat(item.price).toFixed(2)} R$</h1>
-          <small>Estoque disponível: ${item.stock}</small>
+         
         </div>
         <input 
           type="number" 
@@ -111,6 +111,7 @@ const updateCart = () => {
           class="cart-quantity"
           readonly
         >
+        <button class="clear">remover</button>
       </div>
     `;
   });
@@ -254,8 +255,26 @@ const toggleCartVisibility = () => {
   });
 };
 
+const clear = () => {
+  const cartContainer = document.getElementById("cart-items");
+
+  cartContainer.addEventListener("click", event => {
+    if (event.target.classList.contains("clear")) {
+      const button = event.target;
+      const productId = parseInt(button.closest(".cart-item").querySelector(".cart-quantity").getAttribute("data-id"), 10);
+
+      // Remove o item do array `cart`
+      cart = cart.filter(item => item.id !== productId);
+
+      // Atualiza o carrinho
+      updateCart();
+    }
+  });
+};
+
 // --- Inicialização ---
 document.addEventListener("DOMContentLoaded", () => {
+  clear();
   loadProducts(); 
   setupSearch();
   toggleCartVisibility();
