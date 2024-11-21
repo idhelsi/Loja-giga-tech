@@ -341,7 +341,6 @@ p.estoque {
 
 button.add-to-cart {
   font-size: 13px;
-  line-height: 18px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -352,12 +351,10 @@ button.add-to-cart {
   cursor: pointer;
   background: #06ed9d;
   border-radius: 10px;
-  border: none;
   margin: 1px 3px 3px 3px;
 }
 button.add-to-cart:hover {
-  background-color: #080a09;
-  color: #FFF;
+  opacity: 0.7;
 }
 
 .add-to-cart {

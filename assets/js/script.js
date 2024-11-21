@@ -274,8 +274,8 @@ const clear = () => {
 
 // --- Inicialização ---
 document.addEventListener("DOMContentLoaded", () => {
-  clear();
   loadProducts(); 
   setupSearch();
   toggleCartVisibility();
+  clear();
 });
