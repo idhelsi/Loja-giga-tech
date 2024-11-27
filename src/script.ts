@@ -318,7 +318,15 @@ type Product = {
   };
   
   
-  toggleCartVisibility();
-  setupSearch();
-  loadProducts();
-  clear()
+//   toggleCartVisibility();
+//   setupSearch();
+//   loadProducts();
+//   clear()
+
+// Evento DOMContentLoaded
+document.addEventListener("DOMContentLoaded", (): void => {
+    loadProducts(); 
+    setupSearch();
+    toggleCartVisibility();
+    clear();
+  });

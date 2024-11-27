@@ -238,7 +238,9 @@ const clear = () => {
         }
     });
 };
-toggleCartVisibility();
-setupSearch();
-loadProducts();
-clear();
+document.addEventListener("DOMContentLoaded", () => {
+    loadProducts();
+    setupSearch();
+    toggleCartVisibility();
+    clear();
+});
