@@ -157,6 +157,7 @@ type Product = {
     });
   
     cartsummary.style.display = "block";
+    updateCartSummary();
   };
   
   const addToCart = (productId: number): void => {
@@ -190,6 +191,7 @@ type Product = {
         }
   
         updateCart();
+        updateCartSummary();
       })
       .catch((error) => console.error("Erro ao adicionar ao carrinho:", error));
   };
@@ -332,7 +334,17 @@ type Product = {
     });
   };
   
-
+  const updateCartSummary = (): void => {
+    const summaryElement = document.querySelector<HTMLElement>(".summary-value");
+  
+    if (!summaryElement) {
+      console.error("Elemento com a classe 'summary-value' não encontrado.");
+      return;
+    }
+  
+    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    summaryElement.textContent = `R$ ${total.toFixed(2)}`;
+  };
 
 // Evento DOMContentLoaded
 document.addEventListener("DOMContentLoaded", (): void => {
