@@ -218,8 +218,8 @@ type Product = {
     updateCart();
   };
   
-  document.getElementById("finalize-cart")?.addEventListener("click", finalizeCart);
-  
+  document.getElementById("finalize-cart")?.addEventListener("click", finalizeCart)
+
   async function loadProducts(filterText: string = ""): Promise<void> {
     try {
       const response = await fetch("./produtos.json");
