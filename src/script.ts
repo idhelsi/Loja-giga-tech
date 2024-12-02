@@ -104,15 +104,15 @@ type Product = {
   // --- Funções do Carrinho ---
   const updateCart = (): void => {
     const cartContainer = document.getElementById("cart-items");
-    const finalizeButton = document.getElementById("finalize-cart");
+    const cartsummary = document.getElementById("summary") ; 
   
-    if (!cartContainer || !finalizeButton) return;
+    if (!cartContainer || !cartsummary) return;
   
     cartContainer.innerHTML = "";
   
     if (cart.length === 0) {
       cartContainer.innerHTML = "<p>Seu carrinho está vazio.</p>";
-      finalizeButton.style.display = "none";
+      cartsummary.style.display = "none";
       return;
     }
   
@@ -147,12 +147,16 @@ type Product = {
             class="cart-quantity"
             readonly
           >
-          <button class="clear" data-id="${item.id}">remover</button>
+          <button class="clear remove-item" data-id="${item.id}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="remove-item-icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path>
+            </svg>
+          </button>
         </div>
       `;
     });
   
-    finalizeButton.style.display = "block";
+    cartsummary.style.display = "block";
   };
   
   const addToCart = (productId: number): void => {
@@ -175,7 +179,7 @@ type Product = {
         const currentQuantity = existingProduct ? existingProduct.quantity : 0;
   
         if (currentQuantity + 1 > product.stock) {
-          console.log("Quantidade excede o estoque disponível!");
+          // console.log("Quantidade excede o estoque disponível!");
           return;
         }
   
@@ -288,40 +292,47 @@ type Product = {
   const toggleCartVisibility = (): void => {
     const cartIcon = document.querySelector<HTMLElement>(".cart-i");
     const cartContainer = document.querySelector<HTMLElement>(".cart");
+    const iconcart = document.querySelector(".ic") as HTMLElement;
   
     if (!cartIcon || !cartContainer) return;
   
     cartIcon.addEventListener("click", () => {
-      const isVisible = cartContainer.style.display === "block";
-      cartContainer.style.display = isVisible ? "none" : "block";
+      const isVisible = cartContainer.style.display === "flex";
+      cartContainer.style.display = isVisible ? "none" : "flex";
     });
+
+    iconcart.addEventListener("click", () => {
+      let isVisi = cartContainer.style.display === "flex";
+      cartContainer.style.display = isVisi ? "none" : "flex"
+    })
   };
 
-  const clear = () => {
+
+  const clear = (): void => {
     const cartContainer = document.getElementById("cart-items");
   
     cartContainer?.addEventListener("click", (event) => {
-      if ((event.target as HTMLElement).classList.contains("clear")) {
-        const button = event.target as HTMLElement;
-        const productId = parseInt(
-          button.closest(".cart-item")?.querySelector(".cart-quantity")?.getAttribute("data-id") || "0",
-          10
-        );
+      // Verifica se o clique foi no botão ou em seus filhos
+      const button = (event.target as HTMLElement).closest(".clear");
+      if (!button) return;
   
-        // Remove o item do array `cart`
-        cart = cart.filter((item) => item.id !== productId);
+      // Obtém o ID do produto a partir do botão clicado
+      const productId = parseInt(button.getAttribute("data-id") ?? "0", 10);
   
-        // Atualiza o carrinho
-        updateCart();
+      if (!productId) {
+        console.error("Produto não encontrado para remoção!");
+        return;
       }
+  
+      // Remove o item do array `cart`
+      cart = cart.filter((item) => item.id !== productId);
+  
+      // Atualiza o carrinho
+      updateCart();
     });
   };
   
-  
-//   toggleCartVisibility();
-//   setupSearch();
-//   loadProducts();
-//   clear()
+
 
 // Evento DOMContentLoaded
 document.addEventListener("DOMContentLoaded", (): void => {
@@ -330,3 +341,4 @@ document.addEventListener("DOMContentLoaded", (): void => {
     toggleCartVisibility();
     clear();
   });
+

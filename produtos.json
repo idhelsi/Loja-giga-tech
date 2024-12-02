@@ -6,7 +6,7 @@
         "oldPrice": "",
         "photo": "img/relogio1.jpg",
         "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
-        "stock": 0
+        "stock": 100
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@
         "oldPrice": "",
         "photo": "img/fonelv1.jpg",
         "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
-        "stock": 3
+        "stock": 2000
     },
     {
         "id": 3,
@@ -24,7 +24,115 @@
         "oldPrice": 200.00,
         "photo": "img/c1.jpg",
         "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
-        "stock": 5
+        "stock": 533333
+    },
+    {
+        "id": 4,
+        "name": "Relógio Esportivo",
+        "price": 250.00,
+        "oldPrice": "",
+        "photo": "img/relogio1.jpg",
+        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
+        "stock": 100
+    },
+    {
+        "id": 5,
+        "name": "Fone Lenovo",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "img/fonelv1.jpg",
+        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
+        "stock": 2000
+    },
+    {
+        "id": 6,
+        "name": "Compressor Portátil",
+        "price": 180.00,
+        "oldPrice": 200.00,
+        "photo": "img/c1.jpg",
+        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
+        "stock": 533333
+    },
+    {
+        "id": 7,
+        "name": "Relógio Esportivo",
+        "price": 250.00,
+        "oldPrice": "",
+        "photo": "img/relogio1.jpg",
+        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
+        "stock": 100
+    },
+    {
+        "id": 8,
+        "name": "Fone Lenovo",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "img/fonelv1.jpg",
+        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
+        "stock": 2000
+    },
+    {
+        "id": 9,
+        "name": "Compressor Portátil",
+        "price": 180.00,
+        "oldPrice": 200.00,
+        "photo": "img/c1.jpg",
+        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
+        "stock": 533333
+    },
+    {
+        "id": 10,
+        "name": "Relógio Esportivo",
+        "price": 250.00,
+        "oldPrice": "",
+        "photo": "img/relogio1.jpg",
+        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
+        "stock": 100
+    },
+    {
+        "id": 11,
+        "name": "Fone Lenovo",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "img/fonelv1.jpg",
+        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
+        "stock": 2000
+    },
+    {
+        "id": 12,
+        "name": "Compressor Portátil",
+        "price": 180.00,
+        "oldPrice": 200.00,
+        "photo": "img/c1.jpg",
+        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
+        "stock": 533333
+    },
+    {
+        "id": 13,
+        "name": "Relógio Esportivo",
+        "price": 250.00,
+        "oldPrice": "",
+        "photo": "img/relogio1.jpg",
+        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
+        "stock": 100
+    },
+    {
+        "id": 14,
+        "name": "Fone Lenovo",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "img/fonelv1.jpg",
+        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
+        "stock": 2000
+    },
+    {
+        "id": 15,
+        "name": "Compressor Portátil",
+        "price": 180.00,
+        "oldPrice": 200.00,
+        "photo": "img/c1.jpg",
+        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
+        "stock": 533333
     }
 
 ]
