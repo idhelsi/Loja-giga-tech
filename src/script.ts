@@ -48,17 +48,17 @@ type Product = {
                 ? `<div class="text-xss">
                      <span class="oldPriceCard">R$&nbsp;${product.oldPrice!.toFixed(
                        2
-                     )}</span>
+                     ).replace(".",",")}</span>
                    </div>`
                 : `<div class="mar"></div>`
             }
-            <h1 class="preco">${product.price.toFixed(2)} R$</h1>
+            <h1 class="preco">${product.price.toFixed(2).replace(".",",")} R$</h1>
             <div class="text-xs margin">
               À vista no PIX </br>
               <span class="text-xs">
                 ou até 
                 <b class="text-xs">
-                  12x de R$ ${(product.price / 12).toFixed(2)}
+                  12x de R$ ${(product.price / 12).toFixed(2).replace(".",",")}
                 </b>
               </span>
             </div>
@@ -126,15 +126,15 @@ type Product = {
             ${
               item.oldPrice
                 ? `<div class="text-xss">
-                     <span class="oldPriceCard">R$&nbsp;${item.oldPrice.toFixed(2)}</span>
+                     <span class="oldPriceCard">R$&nbsp;${item.oldPrice.toFixed(2).replace(".",",")}</span>
                    </div>`
                 : ""
             }
             <h1 class="preco">
               ${
                 item.quantity > 1
-                  ? `R$ ${totalPrice}`
-                  : `R$ ${item.price.toFixed(2)}`
+                  ? `R$ ${totalPrice.replace(".", ",")}`
+                  : `R$ ${item.price.toFixed(2).replace(".",",")}`
               }
             </h1>
           </div>
@@ -341,11 +341,14 @@ type Product = {
       console.error("Elemento com a classe 'summary-value' não encontrado.");
       return;
     }
-  
+   
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    summaryElement.textContent = `R$ ${total.toFixed(2)}`;
-  };
+    
+    const formattedTotal = `R$ ${total.toFixed(2).replace(".", ",")}`
 
+    summaryElement.textContent = formattedTotal;
+  };
+  
 // Evento DOMContentLoaded
 document.addEventListener("DOMContentLoaded", (): void => {
     loadProducts(); 
