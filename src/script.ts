@@ -208,15 +208,50 @@ type Product = {
       });
   }
   
+  // const finalizeCart = (): void => {
+  //   if (cart.length === 0) return alert("Seu carrinho está vazio!");
+  
+  //   console.log("Produtos no carrinho:", cart);
+  
+  //   alert("Compra finalizada! Confira os detalhes no console.");
+  //   cart = [];
+  //   updateCart();
+  // };
+
   const finalizeCart = (): void => {
     if (cart.length === 0) return alert("Seu carrinho está vazio!");
   
-    console.log("Produtos no carrinho:", cart);
+    // Calcula o total geral e cria um resumo dos itens no carrinho
+    const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const cartDetails = cart.map((item) => ({
+      id: item.id,
+      name: item.name,
+      quantity: item.quantity,
+      total: (item.price * item.quantity).toFixed(2),
+    }));
   
-    alert("Compra finalizada! Confira os detalhes no console.");
+    // Exibe o resumo no console
+    console.log("Resumo da compra:");
+    cartDetails.forEach((detail) => {
+      console.log(
+        `Produto: ${detail.name}, Quantidade: ${detail.quantity}, Total: R$ ${detail.total.replace(".", ",")}`
+      );
+    });
+  
+    console.log(`Valor total da compra: R$ ${totalAmount.toFixed(2).replace(".", ",")}`);
+  
+    // Exibe um alerta de sucesso
+    alert(
+      `Compra finalizada!\n\nValor total: R$ ${totalAmount
+        .toFixed(2)
+        .replace(".", ",")}\nConfira os detalhes no console.`
+    );
+  
+    // Limpa o carrinho e atualiza a interface
     cart = [];
     updateCart();
   };
+  
   
   document.getElementById("finalize-cart")?.addEventListener("click", finalizeCart)
 
