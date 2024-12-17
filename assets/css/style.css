@@ -117,7 +117,7 @@ header {
   right: 0;
   top: 0px;
   bottom: 0;
-  height: 88vh;
+  height: 100vh;
   flex-wrap: wrap;
   align-content: space-between;
   transition: all .4s ease-in-out;
