@@ -208,15 +208,7 @@ type Product = {
       });
   }
   
-  // const finalizeCart = (): void => {
-  //   if (cart.length === 0) return alert("Seu carrinho está vazio!");
-  
-  //   console.log("Produtos no carrinho:", cart);
-  
-  //   alert("Compra finalizada! Confira os detalhes no console.");
-  //   cart = [];
-  //   updateCart();
-  // };
+
 
   const finalizeCart = (): void => {
     if (cart.length === 0) return alert("Seu carrinho está vazio!");
@@ -229,31 +221,40 @@ type Product = {
       quantity: item.quantity,
       total: (item.price * item.quantity).toFixed(2),
     }));
-  
-    // Exibe o resumo no console
-    console.log("Resumo da compra:");
-    cartDetails.forEach((detail) => {
-      console.log(
-        `Produto: ${detail.name}, Quantidade: ${detail.quantity}, Total: R$ ${detail.total.replace(".", ",")}`
-      );
-    });
-  
-    console.log(`Valor total da compra: R$ ${totalAmount.toFixed(2).replace(".", ",")}`);
-  
-    // Exibe um alerta de sucesso
-    alert(
-      `Compra finalizada!\n\nValor total: R$ ${totalAmount
-        .toFixed(2)
-        .replace(".", ",")}\nConfira os detalhes no console.`
-    );
-  
-    // Limpa o carrinho e atualiza a interface
+
+    const itemDetails = cartDetails
+    .map(
+      (detail) =>
+        `🛒 *Produto:* ${detail.name}\n📦 *Quantidade:* ${detail.quantity}\n💰 *Total:* R$ ${detail.total.replace(".", ",")}\n`
+    )
+    .join("\n----------------------\n");
+
+  // Adiciona o valor total ao final da mensagem
+  const valorTotal = `\n💵 *Valor total da compra:* R$ ${totalAmount.toFixed(2).replace(".", ",")}`;
+
+  // Envia a mensagem completa via WhatsApp
+  enviarWhatsApp(itemDetails + valorTotal);
+
     cart = [];
     updateCart();
   };
   
-  
   document.getElementById("finalize-cart")?.addEventListener("click", finalizeCart)
+
+  function enviarWhatsApp(product: string) {
+    // Criar a mensagem com os detalhes dos produtos
+    // const mensagem = produtos.map(produto => {
+    //     return `🛒 *Produto:* ${produto.nome}\n💵 *Preço:* ${produto.preco}\n📦 *Estoque:* ${produto.estoque}\n🖼️ *Imagem:* ${produto.imagem}\n`;
+    // }).join("\n----------------------\n");
+    const numeroWhatsApp = "+5595991202940"
+    const mensagem = product
+
+    // Criar o link do WhatsApp
+    const link = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+    // Abrir o link em uma nova aba
+    window.open(link, '_blank');
+  }
 
   async function loadProducts(filterText: string = ""): Promise<void> {
     try {

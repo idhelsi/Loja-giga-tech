@@ -165,18 +165,21 @@ const finalizeCart = () => {
         quantity: item.quantity,
         total: (item.price * item.quantity).toFixed(2),
     }));
-    console.log("Resumo da compra:");
-    cartDetails.forEach((detail) => {
-        console.log(`Produto: ${detail.name}, Quantidade: ${detail.quantity}, Total: R$ ${detail.total.replace(".", ",")}`);
-    });
-    console.log(`Valor total da compra: R$ ${totalAmount.toFixed(2).replace(".", ",")}`);
-    alert(`Compra finalizada!\n\nValor total: R$ ${totalAmount
-        .toFixed(2)
-        .replace(".", ",")}\nConfira os detalhes no console.`);
+    const itemDetails = cartDetails
+        .map((detail) => `🛒 *Produto:* ${detail.name}\n📦 *Quantidade:* ${detail.quantity}\n💰 *Total:* R$ ${detail.total.replace(".", ",")}\n`)
+        .join("\n----------------------\n");
+    const valorTotal = `\n💵 *Valor total da compra:* R$ ${totalAmount.toFixed(2).replace(".", ",")}`;
+    enviarWhatsApp(itemDetails + valorTotal);
     cart = [];
     updateCart();
 };
 document.getElementById("finalize-cart")?.addEventListener("click", finalizeCart);
+function enviarWhatsApp(product) {
+    const numeroWhatsApp = "+5595991202940";
+    const mensagem = product;
+    const link = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+    window.open(link, '_blank');
+}
 async function loadProducts(filterText = "") {
     try {
         const response = await fetch("./produtos.json");
