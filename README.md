@@ -19,7 +19,11 @@ Busca de Produtos: Permite buscar produtos por nome.
 ## Tecnologias
 
 HTML5: Estrutura da página.
+
 CSS3 (Tailwind CSS): Estilo e responsividade.
+
 JavaScript/TypeScript: Interações dinâmicas e manipulação do carrinho de compras.
+
 API para WhatsApp: Envio de detalhes dos produtos via link para o WhatsApp.
+
 JSON: Armazenamento de dados dos produtos (em produtos.json).
