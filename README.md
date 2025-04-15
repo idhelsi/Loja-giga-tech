@@ -1,29 +1,24 @@
 ### Projeto de Loja Digital com Carrinho de Compras
 
-Este projeto é uma página web de loja digital com funcionalidades de exibição de produtos, carrinho de compras e integração com o WhatsApp para finalizar a compra. A aplicação é totalmente responsiva e otimizada para uma boa experiência de usuário.
+Este projeto é uma loja digital responsiva, desenvolvida para oferecer uma experiência de compra intuitiva. Os usuários podem explorar uma variedade de produtos, adicionar itens ao carrinho e finalizar compras via WhatsApp. A aplicação utiliza HTML, CSS e JavaScript/TypeScript, com dados armazenados em JSON.
 
-## Funcionalidades
+#### Funcionalidades
 
-Exibição de Produtos: Mostra os produtos com informações de preço, fotos, estoque e desconto.
+- **Exibição de Produtos**: Detalhes sobre preços, imagens e estoque.
+- **Gerenciamento de Carrinho**: Adição e remoção de produtos com cálculo automático do total.
+- **Finalização via WhatsApp**: Envio de detalhes do pedido ao vendedor.
+- **Design Responsivo**: Experiência otimizada em dispositivos móveis e desktops.
 
-Carrinho de Compras: Adiciona produtos ao carrinho, atualiza a quantidade e calcula o total.
+#### Tecnologias
 
-Finalização de Compra via WhatsApp: Envia detalhes do pedido via WhatsApp para o vendedor.
+- HTML5, CSS3, JavaScript/TypeScript, JSON.
 
-Slider de Imagens de Produto: Exibe múltiplas imagens dos produtos com navegação entre elas.
+#### Como Executar
 
-Responsividade: Design adaptável para desktop, tablet e mobile.
+1. Clone o repositório.
+2. Abra `index.html` em um navegador.
+3. Navegue pela loja e teste as funcionalidades.
 
-Busca de Produtos: Permite buscar produtos por nome.
+#### Contribuições
 
-## Tecnologias
-
-HTML5: Estrutura da página.
-
-CSS3 (Tailwind CSS): Estilo e responsividade.
-
-JavaScript/TypeScript: Interações dinâmicas e manipulação do carrinho de compras.
-
-API para WhatsApp: Envio de detalhes dos produtos via link para o WhatsApp.
-
-JSON: Armazenamento de dados dos produtos (em produtos.json).
+Contribuições são bem-vindas! Abra issues ou pull requests para sugestões.
