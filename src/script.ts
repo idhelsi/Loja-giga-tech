@@ -54,12 +54,6 @@ type Product = {
             <h1 class="preco">${product.price.toFixed(2).replace(".",",")} R$</h1>
             <div class="text-xs margin">
               À vista no PIX </br>
-              <span class="text-xs">
-                ou até 
-                <b class="text-xs">
-                  12x de R$ ${(product.price / 12).toFixed(2).replace(".",",")}
-                </b>
-              </span>
             </div>
             <button 
               class="add-to-cart" 
@@ -117,9 +111,26 @@ type Product = {
   
     cart.forEach((item) => {
       const totalPrice = (item.price * item.quantity).toFixed(2);
+      const photos = item.photos && item.photos.length > 0 ? item.photos : [item.photo ?? ""];
+      
       cartContainer.innerHTML += `
         <div class="cart-item">
-          <img src="${item.photo ?? ""}" alt="${item.name}">
+          <div class="cart-slider">
+            <div class="slider">
+              ${photos
+                .map(
+                  (photo, index) =>
+                    `<img src="${photo}" alt="${item.name}" class="slide ${
+                      index === 0 ? "active" : ""
+                    }" data-index="${index}">`
+                )
+                .join("")}
+              ${photos.length > 1 ? `
+                <button class="prev">&lt;</button>
+                <button class="next">&gt;</button>
+              ` : ''}
+            </div>
+          </div>
           <div class="cart-item-details">
             <h3 class="nome">${item.name}</h3>
             ${
@@ -157,6 +168,7 @@ type Product = {
   
     cartsummary.style.display = "block";
     updateCartSummary();
+    activateSliders();
   };
   
   const addToCart = (productId: number): void => {
@@ -241,10 +253,7 @@ type Product = {
   document.getElementById("finalize-cart")?.addEventListener("click", finalizeCart)
 
   function enviarWhatsApp(product: string) {
-    // Criar a mensagem com os detalhes dos produtos
-    // const mensagem = produtos.map(produto => {
-    //     return `🛒 *Produto:* ${produto.nome}\n💵 *Preço:* ${produto.preco}\n📦 *Estoque:* ${produto.estoque}\n🖼️ *Imagem:* ${produto.imagem}\n`;
-    // }).join("\n----------------------\n");
+  
     const numeroWhatsApp = "+5595991202940"
     const mensagem = product
 

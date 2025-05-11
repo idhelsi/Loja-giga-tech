@@ -111,7 +111,7 @@ header {
   border: 1px solid #ddd;
   padding: 10px;
   max-width: 400px;
-  width: 400px;
+  width: 100%;
   position: fixed;
   background-color: #fff;
   right: 0;
@@ -123,12 +123,14 @@ header {
   transition: all .4s ease-in-out;
   z-index: 10010;
   justify-content: space-around;
+  overflow-y: auto;
 }
 
 #cart-items {
   overflow: auto;
-  width: 315px;
-  height: 550px;
+  width: 100%;
+  height: calc(100vh - 200px);
+  padding: 0 10px;
 }
 
 .cart-item {
@@ -136,29 +138,91 @@ header {
   display: flex;
   margin-bottom: 10px;
   height: 100px;
-  width: 299px;
+  width: 100%;
   color: #000;
   align-items: center;
   position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 5px;
 }
 
-.cart-item img {
+.cart-slider {
   display: flex;
   flex: 1;
   height: inherit;
   margin-right: 10px;
   align-items: center;
+  min-width: 80px;
+  max-width: 100px;
+}
+
+.cart-slider .slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.cart-slider .slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-slider .slide.active {
+  display: block;
+}
+
+.cart-slider .slider button {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 100%;
+  transition: background-color 0.3s ease;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-slider .slider button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.cart-slider .slider .prev {
+  left: 2px;
+}
+
+.cart-slider .slider .next {
+  right: 2px;
 }
 
 .cart-item-details {
   flex: 2;
   display: flex;
   flex-direction: column;
+  padding: 0 5px;
+  min-width: 0;
 }
 
 .cart-item .nome {
   font-size: 13px;
   margin: 0px 0px 10px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cart-item .oldPriceCard {
@@ -189,12 +253,16 @@ header {
   margin: 0;
   padding: 0;
   cursor: context-menu;
+  background: transparent;
+  text-align: center;
 }
 
 .cart-summary {
   border-top: 1px solid #F3F4F6;
   padding: 1rem;
   margin-bottom: 20px;
+  width: 100%;
+  background-color: #fff;
 }
 
 .summary-details {
@@ -203,11 +271,12 @@ header {
 }
 
 .summary-total {
-  /* display: flex; */
   font-weight: 500;
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
 
 .remove-item {
   display: flex;
@@ -215,6 +284,10 @@ header {
   border: none;
   color: #374151;
   transition: color 0.2s;
+  padding: 5px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 
 .remove-item:hover {
@@ -228,6 +301,8 @@ header {
 
 .but {
   text-align: right;
+  width: 100%;
+  padding: 0 10px;
 }
 
 .finalizar {
@@ -239,7 +314,11 @@ header {
   border-radius: 0.375rem;
   transition: background-color 0.2s;
   cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
+
 .finalizar:hover {
   opacity: 0.7;
 }
@@ -564,23 +643,97 @@ footer {
 @media (min-width: 769px) and (max-width: 1140px) {
   .container {
     max-width: 900px;
+    padding: 0 15px;
   }
 
-  .p-promo {
-    gap: 50px;
+  .header-area {
+    height: 90px;
+  }
+
+  .header-left img {
+    height: 80px;
+    width: 80px;
+  }
+
+  .header-search form {
+    width: 350px;
+    margin-left: 30px;
+  }
+
+  .header-search input {
+    font-size: 14px;
+    padding: 8px 12px;
   }
 
   .produtos {
     grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 12px 0;
+  }
+
+  .produto {
+    width: 200px;
+    height: 360px;
+  }
+
+  .slider {
+    height: 200px;
+  }
+
+  .produtos .nome {
+    font-size: 14px;
+    margin: 5px 0px 12px 5px;
+  }
+
+  .produtos .preco {
+    font-size: 18px;
+  }
+
+  .cart {
+    max-width: 350px;
+  }
+
+  .cart-item {
+    height: 95px;
+    padding: 8px;
+  }
+
+  .cart-slider {
+    min-width: 75px;
+    max-width: 95px;
+  }
+
+  .cart-item .nome {
+    font-size: 13px;
+    margin: 0px 0px 8px 5px;
+  }
+
+  .cart-item .preco {
+    font-size: 15px;
+  }
+
+  .cart-item input {
+    width: 20px;
+    font-size: 13px;
+  }
+
+  .cart-summary {
+    padding: 1rem;
+  }
+
+  .summary-details {
+    font-size: 0.875rem;
+  }
+
+  .summary-total {
+    font-size: 1rem;
+  }
+
+  .finalizar {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
   }
 }
-
-
-
-.mar {
-  height: 12px;
-}
-
 
 @media (min-width: 426px) and (max-width: 768px) {
   .container {
@@ -588,82 +741,200 @@ footer {
   }
 
   .header-search form {
-    width: 300px;
-  }
-
-  .p-promo {
-    gap: 50px;
-  }
-
-  .produtos {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .produto {
-    width: 200px;
-    height: 350px;
-  }
-
-  .produtos div img {
-    border-radius: inherit;
-    height: 200px;
-    width: inherit;
-  }
-
-  button.add-to-cart {
-    width: 97%;
-    height: 30px
-  }
-}
-
-@media (max-width: 426px) {
-  .container {
-    max-width: 400px;
-  }
-
-
-  .header-search form {
-    width: 100px;
-  }
-
-  .header-search input {
-    padding: 8px 20px 8px 15px;
-  }
-
-  .p-promo {
-    gap: 10px;
-  }
-
-  .cart {
-    max-width: 300px;
-  }
-
-  .produto {
-    width: 150px;
-    height: 300px;
+    width: 250px;
+    margin-left: 20px;
   }
 
   .produtos {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .produto {
+    width: 180px;
+    height: 340px;
+  }
+
+  .slider {
+    height: 180px;
   }
 
   .produtos .nome {
-    margin: 5px 0px 4px 5px;
+    font-size: 14px;
+    margin: 5px 0px 10px 5px;
   }
 
-  .produto-slider {
-    height: 150px
+  .produtos .preco {
+    font-size: 18px;
   }
 
-  .produtos a img {
-    height: 160px;
+  .cart {
+    max-width: 320px;
+  }
+
+  .cart-item {
+    height: 90px;
+  }
+
+  .cart-slider {
+    min-width: 70px;
+    max-width: 90px;
+  }
+
+  .cart-item .nome {
+    font-size: 12px;
+    margin: 0px 0px 5px 3px;
+  }
+
+  .cart-item .preco {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 425px) {
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .header-area {
+    height: 80px;
+  }
+
+  .header-left img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .header-search form {
+    width: 120px;
+    margin-left: 10px;
+  }
+
+  .header-search input {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .produtos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 10px 0;
+  }
+
+  .produto {
+    width: 140px;
+    height: 280px;
+  }
+
+  .slider {
+    height: 140px;
+  }
+
+  .produtos .nome {
+    font-size: 12px;
+    margin: 3px 0px 5px 3px;
+  }
+
+  .produtos .preco {
+    font-size: 16px;
+    margin: 0px 0px 0px 3px;
+  }
+
+  .text-xs {
+    font-size: 10px;
+  }
+
+  .margin {
+    margin: 0px 0px 0px 3px;
+  }
+
+  button.add-to-cart {
+    font-size: 11px;
+    height: 25px;
+    margin: 1px 2px 2px 2px;
+  }
+
+  .cart {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .cart-item {
+    height: 85px;
+    padding: 3px;
+  }
+
+  .cart-slider {
+    min-width: 60px;
+    max-width: 80px;
+  }
+
+  .cart-item .nome {
+    font-size: 11px;
+    margin: 0px 0px 3px 3px;
+  }
+
+  .cart-item .preco {
+    font-size: 13px;
+  }
+
+  .cart-item input {
+    width: 18px;
+    font-size: 11px;
+  }
+
+  .remove-item {
+    padding: 3px;
+  }
+
+  .remove-item-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .cart-summary {
+    padding: 0.75rem;
+  }
+
+  .summary-details {
+    font-size: 0.75rem;
+  }
+
+  .summary-total {
+    font-size: 0.875rem;
+  }
+
+  .finalizar {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
   }
 
   .area {
     flex-direction: column;
+    padding: 0 10px;
   }
 
-  .mar {
-    height: 25px;
+  .widget_title {
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  .widget_atendimento .bola,
+  .widget_pagamento .bola {
+    height: 30px;
+    width: 30px;
+  }
+
+  .widget_atendimento div img,
+  .widget_pagamento div img {
+    height: 18px;
+    margin: 0px 8px 0px 5px;
+  }
+
+  .direitos {
+    font-size: 10px;
+    height: 30px;
+    line-height: 30px;
   }
 }

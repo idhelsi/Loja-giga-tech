@@ -28,12 +28,6 @@ const createProductCard = (product) => {
             <h1 class="preco">${product.price.toFixed(2).replace(".", ",")} R$</h1>
             <div class="text-xs margin">
               À vista no PIX </br>
-              <span class="text-xs">
-                ou até 
-                <b class="text-xs">
-                  12x de R$ ${(product.price / 12).toFixed(2).replace(".", ",")}
-                </b>
-              </span>
             </div>
             <button 
               class="add-to-cart" 
@@ -77,9 +71,20 @@ const updateCart = () => {
     }
     cart.forEach((item) => {
         const totalPrice = (item.price * item.quantity).toFixed(2);
+        const photos = item.photos && item.photos.length > 0 ? item.photos : [item.photo ?? ""];
         cartContainer.innerHTML += `
         <div class="cart-item">
-          <img src="${item.photo ?? ""}" alt="${item.name}">
+          <div class="cart-slider">
+            <div class="slider">
+              ${photos
+            .map((photo, index) => `<img src="${photo}" alt="${item.name}" class="slide ${index === 0 ? "active" : ""}" data-index="${index}">`)
+            .join("")}
+              ${photos.length > 1 ? `
+                <button class="prev">&lt;</button>
+                <button class="next">&gt;</button>
+              ` : ''}
+            </div>
+          </div>
           <div class="cart-item-details">
             <h3 class="nome">${item.name}</h3>
             ${item.oldPrice
@@ -112,6 +117,7 @@ const updateCart = () => {
     });
     cartsummary.style.display = "block";
     updateCartSummary();
+    activateSliders();
 };
 const addToCart = (productId) => {
     fetch("./produtos.json")
