@@ -224,6 +224,9 @@ type Product = {
   const finalizeCart = (): void => {
     if (cart.length === 0) return alert("Seu carrinho está vazio!");
   
+    // Obtém a URL base do site
+    const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+  
     // Calcula o total geral e cria um resumo dos itens no carrinho
     const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     const cartDetails = cart.map((item) => ({
@@ -231,12 +234,13 @@ type Product = {
       name: item.name,
       quantity: item.quantity,
       total: (item.price * item.quantity).toFixed(2),
+      photo: item.photos && item.photos.length > 0 ? baseUrl + item.photos[0] : baseUrl + item.photo
     }));
 
     const itemDetails = cartDetails
     .map(
       (detail) =>
-        `🛒 *Produto:* ${detail.name}\n📦 *Quantidade:* ${detail.quantity}\n💰 *Total:* R$ ${detail.total.replace(".", ",")}\n`
+        `🛒 *Produto:* ${detail.name}\n📦 *Quantidade:* ${detail.quantity}\n💰 *Total:* R$ ${detail.total.replace(".", ",")}\n🖼️ *Imagem:* ${detail.photo}\n`
     )
     .join("\n----------------------\n");
 

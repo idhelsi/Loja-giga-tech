@@ -165,15 +165,17 @@ function setupAddToCartButtons() {
 const finalizeCart = () => {
     if (cart.length === 0)
         return alert("Seu carrinho está vazio!");
+    const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
     const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     const cartDetails = cart.map((item) => ({
         id: item.id,
         name: item.name,
         quantity: item.quantity,
         total: (item.price * item.quantity).toFixed(2),
+        photo: item.photos && item.photos.length > 0 ? baseUrl + item.photos[0] : baseUrl + item.photo
     }));
     const itemDetails = cartDetails
-        .map((detail) => `🛒 *Produto:* ${detail.name}\n📦 *Quantidade:* ${detail.quantity}\n💰 *Total:* R$ ${detail.total.replace(".", ",")}\n`)
+        .map((detail) => `🛒 *Produto:* ${detail.name}\n📦 *Quantidade:* ${detail.quantity}\n💰 *Total:* R$ ${detail.total.replace(".", ",")}\n🖼️ *Imagem:* ${detail.photo}\n`)
         .join("\n----------------------\n");
     const valorTotal = `\n💵 *Valor total da compra:* R$ ${totalAmount.toFixed(2).replace(".", ",")}`;
     enviarWhatsApp(itemDetails + valorTotal);
