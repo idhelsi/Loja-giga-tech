@@ -19,27 +19,26 @@ type Product = {
   // Cria o HTML de um cartão de produto
   const createProductCard = (product: Product): string => {
     const hasDiscount = product.oldPrice && product.oldPrice > product.price;
+    const photos = product.photos && product.photos.length > 0 ? product.photos : [product.photo ?? ""];
   
     return `
       <div class="produto" id="produto-${product.id}">
         <div class="item">
           <div class="produto-slider">
-            ${
-              product.photos && product.photos.length > 1
-                ? `<div class="slider">
-                     ${product.photos
-                       .map(
-                         (photo, index) =>
-                           `<img src="${photo}" alt="${product.name}" class="slide ${
-                             index === 0 ? "active" : ""
-                           }" data-index="${index}">`
-                       )
-                       .join("")}
-                     <button class="prev">&lt;</button>
-                     <button class="next">&gt;</button>
-                   </div>`
-                : `<img src="${product.photo ?? ""}" alt="${product.name}">`
-            }
+            <div class="slider">
+              ${photos
+                .map(
+                  (photo, index) =>
+                    `<img src="${photo}" alt="${product.name}" class="slide ${
+                      index === 0 ? "active" : ""
+                    }" data-index="${index}">`
+                )
+                .join("")}
+              ${photos.length > 1 ? `
+                <button class="prev">&lt;</button>
+                <button class="next">&gt;</button>
+              ` : ''}
+            </div>
           </div>
           <div class="produto-descricao">
             <h3 class="nome">${product.name}</h3>

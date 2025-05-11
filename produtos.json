@@ -1,137 +1,245 @@
 [
     {
         "id": 1,
-        "name": "Relógio Esportivo",
-        "price": 250.00,
+        "name": "Relógio social",
+        "price": 200.00,
         "oldPrice": "",
-        "photo": "img/relogio1.jpg",
-        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
-        "stock": 100
+        "photo": "",
+        "photos": ["img/reverde.jpeg"],
+        "stock": 2100
     },
     {
         "id": 2,
-        "name": "Fone Lenovo",
-        "price": 150.00,
+        "name": "Relógio luxo - Lige",
+        "price": 220.00,
         "oldPrice": "",
-        "photo": "img/fonelv1.jpg",
-        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
+        "photo": "",
+        "photos": ["img/reluxo.jpeg"],
         "stock": 2000
     },
     {
         "id": 3,
-        "name": "Compressor Portátil",
-        "price": 180.00,
-        "oldPrice": 200.00,
-        "photo": "img/c1.jpg",
-        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
+        "name": "Relógio social - Lige",
+        "price": 120.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/relige.jpeg"],
         "stock": 533333
     },
     {
         "id": 4,
-        "name": "Relógio Esportivo",
-        "price": 250.00,
+        "name": "Relógio social - Lige",
+        "price": 120.00,
         "oldPrice": "",
-        "photo": "img/relogio1.jpg",
-        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
-        "stock": 100
+        "photo": "",
+        "photos": ["img/relige2.jpeg"],
+        "stock": 22100
     },
     {
         "id": 5,
-        "name": "Fone Lenovo",
-        "price": 150.00,
+        "name": "Relógio social - Lige",
+        "price": 120.00,
         "oldPrice": "",
-        "photo": "img/fonelv1.jpg",
-        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
-        "stock": 2000
+        "photo": "",
+        "photos": ["img/relige3.jpeg"],
+        "stock": 20001
     },
     {
         "id": 6,
-        "name": "Compressor Portátil",
-        "price": 180.00,
-        "oldPrice": 200.00,
-        "photo": "img/c1.jpg",
-        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
+        "name": "Relógio social - Lige",
+        "price": 120.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/relige4.jpeg"],
         "stock": 533333
     },
     {
         "id": 7,
-        "name": "Relógio Esportivo",
-        "price": 250.00,
+        "name": "Relógio Esportivo - Shock",
+        "price": 180.00,
         "oldPrice": "",
-        "photo": "img/relogio1.jpg",
-        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
-        "stock": 100
+        "photo": "",
+        "photos": ["img/reshock1.jpeg"],
+        "stock": 1011110
     },
     {
         "id": 8,
-        "name": "Fone Lenovo",
+        "name": "Relógio esportivo - Smael",
         "price": 150.00,
         "oldPrice": "",
-        "photo": "img/fonelv1.jpg",
-        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
-        "stock": 2000
+        "photo": "",
+        "photos": ["img/resmal1.jpeg"],
+        "stock": 200222220
     },
     {
         "id": 9,
-        "name": "Compressor Portátil",
-        "price": 180.00,
-        "oldPrice": 200.00,
-        "photo": "img/c1.jpg",
-        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
+        "name": "Relógio - Skmei",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/reskemei.jpeg"],
         "stock": 533333
     },
     {
         "id": 10,
-        "name": "Relógio Esportivo",
-        "price": 250.00,
+        "name": "Relógio - Skmei",
+        "price": 180.00,
         "oldPrice": "",
-        "photo": "img/relogio1.jpg",
-        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
-        "stock": 100
+        "photo": "",
+        "photos": ["img/reskemei2.jpeg"],
+        "stock": 1011111
     },
     {
         "id": 11,
-        "name": "Fone Lenovo",
+        "name": "Relógio - Smael",
         "price": 150.00,
         "oldPrice": "",
-        "photo": "img/fonelv1.jpg",
-        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
-        "stock": 2000
+        "photo": "",
+        "photos": ["img/resmal2.jpeg"],
+        "stock": 20010
     },
     {
         "id": 12,
-        "name": "Compressor Portátil",
-        "price": 180.00,
-        "oldPrice": 200.00,
-        "photo": "img/c1.jpg",
-        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
+        "name": "Relógio - Smael",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/resmal3.jpeg"],
         "stock": 533333
     },
     {
         "id": 13,
-        "name": "Relógio Esportivo",
-        "price": 250.00,
+        "name": "Relógio - Smael",
+        "price": 150.00,
         "oldPrice": "",
-        "photo": "img/relogio1.jpg",
-        "photos": ["img/relogio1.jpg", "img/relogio2.jpg", "img/relogio3.jpg"],
-        "stock": 100
+        "photo": "",
+        "photos": ["img/resmal4.jpeg"],
+        "stock": 10011
     },
     {
         "id": 14,
-        "name": "Fone Lenovo",
-        "price": 150.00,
+        "name": "Relógio - Smael",
+        "price": 180.00,
         "oldPrice": "",
-        "photo": "img/fonelv1.jpg",
-        "photos": ["img/fonelv1.jpg", "img/fonelv2.jpg", "img/fonelv3.jpg"],
-        "stock": 2000
+        "photo": "",
+        "photos": ["img/resmal5.jpeg"],
+        "stock": 200011
     },
     {
         "id": 15,
-        "name": "Compressor Portátil",
+        "name": "Relógio - Smael",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/resmal6.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 16,
+        "name": "Relógio - Smael",
         "price": 180.00,
-        "oldPrice": 200.00,
-        "photo": "img/c1.jpg",
-        "photos": ["img/c1.jpg", "img/c2.jpg", "img/c3.jpg"],
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/resmal7.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 17,
+        "name": "Relógio - Smael",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/resmal8.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 18,
+        "name": "Relógio - Smael",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/resmal9.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 19,
+        "name": "Relógio - Smael",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/resmal10.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 20,
+        "name": "Cortador de cabelo",
+        "price": 180.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/cbelo1.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 21,
+        "name": "Cortador de cabelo VGR",
+        "price": 180.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/cbelo2.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 22,
+        "name": "Relógio inteligente Colmi P71",
+        "price": 180.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/reinte1.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 23,
+        "name": "Relógio inteligente Stratos 2",
+        "price": 300.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/reinte2.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 24,
+        "name": "Relógio inteligente 7 em 1",
+        "price": 200.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/rewat1.jpeg", "img/rewat2.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 25,
+        "name": "Fone de ouvido EZ 10",
+        "price": 150.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/fobs1.jpeg", "img/fobs2.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 26,
+        "name": "Relógio inteligente Haylou Solar",
+        "price": 250.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/rehay.jpeg"],
+        "stock": 533333
+    },
+    {
+        "id": 27,
+        "name": "Compressor de ar portátil ",
+        "price": 180.00,
+        "oldPrice": "",
+        "photo": "",
+        "photos": ["img/ar1.jpeg", "img/ar2.jpeg", "img/ar3.jpeg"],
         "stock": 533333
     }
 

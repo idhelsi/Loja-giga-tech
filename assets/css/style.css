@@ -330,12 +330,15 @@ header {
   justify-content: center;
   border-radius: inherit;
   width: inherit;
+  height: 240px;
+  overflow: hidden;
 }
 
 .slide {
   display: none;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .slide.active {
@@ -351,6 +354,11 @@ header {
   cursor: pointer;
   z-index: 10;
   border-radius: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.slider button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .slider .prev {
