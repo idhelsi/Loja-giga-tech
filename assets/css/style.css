@@ -128,10 +128,9 @@ header {
 
 #cart-items {
   overflow: auto;
-  width: 100%;
+  width: 350px;
   max-height: calc(100vh - 250px);
   padding: 10px;
-  border: 1px solid #CCC;
 }
 
 .cart-item {
@@ -688,9 +687,7 @@ footer {
     font-size: 18px;
   }
 
-  .cart {
-    max-width: 350px;
-  }
+ 
 
   .cart-item {
     height: 95px;
@@ -767,9 +764,7 @@ footer {
     font-size: 18px;
   }
 
-  .cart {
-    max-width: 320px;
-  }
+ 
 
   .cart-item {
     height: 90px;
@@ -854,6 +849,9 @@ footer {
     margin: 1px 2px 2px 2px;
   }
 
+  #cart-items {
+    width: 300px;
+}
 
   .cart-item {
     height: 85px;
